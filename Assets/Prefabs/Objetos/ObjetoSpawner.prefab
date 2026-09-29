@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5237469690397498143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955144873431830929}
+  - component: {fileID: 1781664046058246761}
+  m_Layer: 0
+  m_Name: ObjetoSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &955144873431830929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237469690397498143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.49083865, y: 1.4669013, z: -0.011167305}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781664046058246761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237469690397498143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17223914aa1b4e848853f7d6bde8b265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsBuenos:
+  - {fileID: 5249196459335613944, guid: 176b7e6b9d35dbf499d41748f97d7c10, type: 3}
+  - {fileID: 5249196459335613944, guid: 3823bdfdd4047034ba76ee98e386908e, type: 3}
+  - {fileID: 5249196459335613944, guid: 2e9d0a1c6fdb037408535d45e7028a42, type: 3}
+  prefabsMalos:
+  - {fileID: 5249196459335613944, guid: ca908ee2b7f1a8b4c9a0901cb8625350, type: 3}
+  - {fileID: 5249196459335613944, guid: 134bdf0aff049e54aa22198e02151b6b, type: 3}
+  probBueno: 0.45
+  probMaloInicial: 0.25
+  probMaloMax: 0.55
+  incrementoMalo: 0.0375
+  intervaloProgresoMalo: 8
+  intervaloSpawnInicial: 2.5
+  intervaloSpawnMinimo: 1.3
+  reduccionIntervalo: 0.1
+  intervaloReduccion: 15
+  xMin: -9
+  xMax: 9
+  yFijo: 7
+  rafagaMin: 2
+  rafagaMax: 5
+  retardoInicial: 3
