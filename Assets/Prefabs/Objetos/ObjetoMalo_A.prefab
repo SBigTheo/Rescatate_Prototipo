@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipo: 1
+  puntos: -75
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
