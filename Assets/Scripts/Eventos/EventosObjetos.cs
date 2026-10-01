@@ -1,4 +1,4 @@
 public static class EventosObjetos
 {
-    public static System.Action<TipoObjeto> OnObjetoRecogido;
+    public static System.Action<TipoObjeto, int> OnObjetoRecogido;
 }

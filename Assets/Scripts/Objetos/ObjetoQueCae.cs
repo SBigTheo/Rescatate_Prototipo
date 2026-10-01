@@ -11,6 +11,9 @@ public class ObjetoQueCae : MonoBehaviour
     [Header("Configuración")]
     public TipoObjeto tipo = TipoObjeto.Bueno;
 
+    [Header("Puntos")]
+    public int puntos = 0;
+
     [Header("Detección de suelo")]
     public LayerMask groundLayer;
 
@@ -36,7 +39,7 @@ public class ObjetoQueCae : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            EventosObjetos.OnObjetoRecogido?.Invoke(tipo);
+            EventosObjetos.OnObjetoRecogido?.Invoke(tipo, puntos);
             Destruir();
         }
     }
