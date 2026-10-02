@@ -21,8 +21,8 @@ public class Cronometro : MonoBehaviour
 
         TiempoRestante -= Time.deltaTime;
 
-        if (textoTiempo != null)
-            textoTiempo.text = Mathf.CeilToInt(Mathf.Max(TiempoRestante, 0)).ToString();
+        //if (textoTiempo != null)
+           // textoTiempo.text = Mathf.CeilToInt(Mathf.Max(TiempoRestante, 0)).ToString();
 
         if (TiempoRestante <= 0f)
             Ganar();
