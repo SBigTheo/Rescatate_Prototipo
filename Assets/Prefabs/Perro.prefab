@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8432379707189361556}
   - component: {fileID: 4934339584289247586}
   - component: {fileID: 3552979578600555260}
+  - component: {fileID: -5277826131313200981}
   - component: {fileID: 7922958557862619823}
   m_Layer: 11
   m_Name: Perro
@@ -178,6 +179,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 3
   distancia: 18
+--- !u!114 &-5277826131313200981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775745032197721241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301a997d6e0a71a4aae9cc364cf21fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidadDano: 1
+  tagObjetivo: Player
+  cooldown: 1
+  destruirAlImpactar: 0
 --- !u!95 &7922958557862619823
 Animator:
   serializedVersion: 7

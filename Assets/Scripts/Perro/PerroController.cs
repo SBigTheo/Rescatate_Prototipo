@@ -49,7 +49,6 @@ public class PerroController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Impacta");
-            FindFirstObjectByType<Cronometro>().Perder();
         }
     }
 }
