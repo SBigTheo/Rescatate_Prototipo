@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AlertaPerro : MonoBehaviour
 {
-    public float duracion = 2f;          
-    public GameObject perroPrefab;     
-    //public Transform puntoAparicion;   
+    public float duracion = 2.5f;
+    public GameObject perroPrefab;
+    [HideInInspector] public SpawnerPerro spawner;  
 
     void Start()
     {
@@ -13,8 +13,11 @@ public class AlertaPerro : MonoBehaviour
 
     void SoltarPerro()
     {
-        //Instantiate(perroPrefab, puntoAparicion.position, Quaternion.identity);
-        Instantiate(perroPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);            
+        GameObject perro = Instantiate(perroPrefab, transform.position, Quaternion.identity);
+
+        if (spawner != null)
+            spawner.perroActual = perro;
+
+        Destroy(gameObject);
     }
 }

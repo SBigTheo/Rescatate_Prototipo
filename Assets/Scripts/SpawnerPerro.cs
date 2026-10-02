@@ -3,37 +3,42 @@ using UnityEngine;
 public class SpawnerPerro : MonoBehaviour
 {
     public Cronometro cronometro;
-    public GameObject alertaPrefab;       // la alerta (ella suelta al perro)
-    public Transform[] puntos;            // lugares posibles de aparición
+    public GameObject alertaPrefab;
+    public Transform[] puntos;
 
-    public float intervaloInicial = 5f;   // al principio aparece cada 5 seg
-    public float intervaloFinal = 1.5f;   // al final aparece cada 1.5 seg
-    public int maxPerros = 3;             // máximo de perros por tanda al final
+    public float intervaloInicial = 5f; 
+    public float intervaloFinal = 2f;
+    [HideInInspector] public GameObject perroActual;
 
+    private GameObject alertaActual;
     private float proximo;
 
     void Start()
     {
         proximo = intervaloInicial;
+
+        if (puntos == null || puntos.Length == 0)
+        {
+            Debug.LogError("SpawnerPerro: no hay puntos asignados", this);
+            enabled = false;
+        }
     }
 
     void Update()
     {
         if (cronometro.Terminada) return;
 
+       
+        if (alertaActual != null || perroActual != null) return;
+
         proximo -= Time.deltaTime;
         if (proximo > 0f) return;
 
-        // Cuántos perros salen en esta tanda: de 1 a maxPerros según el avance
-        int cantidad = Mathf.Min(1 + Mathf.FloorToInt(cronometro.Progreso * maxPerros), maxPerros);
+       
+        Transform punto = puntos[Random.Range(0, puntos.Length)];
+        alertaActual = Instantiate(alertaPrefab, punto.position, Quaternion.identity);
+        alertaActual.GetComponent<AlertaPerro>().spawner = this;
 
-        for (int i = 0; i < cantidad; i++)
-        {
-            Transform punto = puntos[Random.Range(0, puntos.Length)];
-            Instantiate(alertaPrefab, punto.position, Quaternion.identity);
-        }
-
-        // El intervalo se acorta a medida que avanza el tiempo
         proximo = Mathf.Lerp(intervaloInicial, intervaloFinal, cronometro.Progreso);
     }
 }
