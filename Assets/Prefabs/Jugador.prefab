@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7067265882907411153}
   - component: {fileID: 7149126153340832285}
   - component: {fileID: 2701312118432369403}
+  - component: {fileID: -5341422126077175492}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -214,3 +215,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &-5341422126077175492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086878613882328186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb77ea42eb184ee48a5a9cd0b6db698d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaMaxima: 3
