@@ -28,5 +28,6 @@ public class VidaJugador : MonoBehaviour
     void Morir()
     {
         FindFirstObjectByType<Cronometro>().Perder();
+        Time.timeScale = 0f;
     }
 }
