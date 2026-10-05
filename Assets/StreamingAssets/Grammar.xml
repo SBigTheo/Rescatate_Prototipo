@@ -1,0 +1,10 @@
+<grammar version="1.0" xml:lang="es-ES" root="rootRule" xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="rootRule">
+    <one-of>
+      <item>salta</item>
+      <item>saltar</item>
+      <item>salto</item>
+      <item>arriba</item>
+    </one-of>
+  </rule>
+</grammar>

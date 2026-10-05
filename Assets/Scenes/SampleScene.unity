@@ -884,7 +884,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2366edbe08c5ed468d329e4d27ae00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  confidenceLevel: 1
+  player: {fileID: 1669726345}
+  confidenceLevel: 2
+  nombreArchivoGramatica: Grammar.xml
 --- !u!4 &830668060
 Transform:
   m_ObjectHideFlags: 0
@@ -1300,6 +1302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5237469690397498143, guid: 79015e0c636d10946978828cf05f9a66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1412,7 +1418,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2127,7 +2133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2701312118432369403, guid: 6caa269a7f50a4b4884135c3c5bbc546, type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2701312118432369403, guid: 6caa269a7f50a4b4884135c3c5bbc546, type: 3}
       propertyPath: moveSpeed
