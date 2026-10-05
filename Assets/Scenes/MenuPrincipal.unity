@@ -377,8 +377,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1433811698}
   - {fileID: 2035940849}
+  - {fileID: 1433811698}
   m_Father: {fileID: 1793869218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 1433811700}
   - component: {fileID: 1433811699}
   m_Layer: 5
-  m_Name: Jugar
+  m_Name: Salir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,9 +485,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.927899, g: 0.48235297, b: 1, a: 0.41960785}
-    m_PressedColor: {r: 0.9206982, g: 0.50980395, b: 1, a: 0.61960787}
-    m_SelectedColor: {r: 0.92698425, g: 0.5019608, b: 1, a: 0.7058824}
+    m_HighlightedColor: {r: 0.98943365, g: 1, b: 0.48235297, a: 0.41960785}
+    m_PressedColor: {r: 0.99363345, g: 1, b: 0.50980395, a: 0.61960787}
+    m_SelectedColor: {r: 0.9970293, g: 1, b: 0.5019608, a: 0.7058824}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -506,7 +506,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1433811700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1793869219}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: Salir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1433811700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +705,7 @@ GameObject:
   - component: {fileID: 1793869217}
   - component: {fileID: 1793869216}
   - component: {fileID: 1793869215}
+  - component: {fileID: 1793869219}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -783,6 +796,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1793869219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793869214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de13940755041bb459f8217649bc4e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997965249
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +900,7 @@ GameObject:
   - component: {fileID: 2035940851}
   - component: {fileID: 2035940850}
   m_Layer: 5
-  m_Name: Salir
+  m_Name: Jugar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,9 +948,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.90853786, b: 0.48235297, a: 1}
-    m_PressedColor: {r: 1, g: 0.8637829, b: 0.50980395, a: 0.61960787}
-    m_SelectedColor: {r: 1, g: 0.7898923, b: 0.5019608, a: 0.5176471}
+    m_HighlightedColor: {r: 0.9674913, g: 0.48235297, b: 1, a: 0.40392157}
+    m_PressedColor: {r: 0.93746144, g: 0.50980395, b: 1, a: 0.50980395}
+    m_SelectedColor: {r: 0.9702533, g: 0.5019608, b: 1, a: 0.61960787}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -944,7 +969,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2035940851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1793869219}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: Jugar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2035940851
 MonoBehaviour:
   m_ObjectHideFlags: 0
