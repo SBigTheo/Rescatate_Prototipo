@@ -1,123 +1,82 @@
 using UnityEngine;
 using UnityEngine.Windows.Speech;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 
 public class VoiceManager : MonoBehaviour
 {
-    public ConfidenceLevel confidenceLevel = ConfidenceLevel.Medium;
+    [Header("Referencias")]
+    public PlayerController player;
 
-    private KeywordRecognizer keywordRecognizer;
-    private Dictionary<string, System.Action> commands = new Dictionary<string, System.Action>();
-    private PlayerController player;
+    [Header("Configuración de voz")]
+    public ConfidenceLevel confidenceLevel = ConfidenceLevel.Low;
+
+    [Tooltip("Nombre del archivo de gramática dentro de StreamingAssets")]
+    public string nombreArchivoGramatica = "Grammar.xml";
+
+    private GrammarRecognizer grammarRecognizer;
 
     void Start()
     {
-        player = FindFirstObjectByType<PlayerController>();
-        if (player == null) return;
+        if (player == null)
+            player = FindFirstObjectByType<PlayerController>();
 
-        //commands.Add("izquierda", () => { player.MoveLeft(); });
-        //commands.Add("izkierda", () => { player.MoveLeft(); });
-        //commands.Add("isquierda", () => { player.MoveLeft(); });
-        //commands.Add("iskierda", () => { player.MoveLeft(); });
-        //commands.Add("izquieda", () => { player.MoveLeft(); });
-        //commands.Add("izquiera", () => { player.MoveLeft(); });
-        //commands.Add("izquerda", () => { player.MoveLeft(); });
-        //commands.Add("izquirda", () => { player.MoveLeft(); });
-        //commands.Add("izquiedda", () => { player.MoveLeft(); });
-        //commands.Add("izkienda", () => { player.MoveLeft(); });
-        //commands.Add("isquieda", () => { player.MoveLeft(); });
-        //commands.Add("left", () => { player.MoveLeft(); });
-        //commands.Add("lef", () => { player.MoveLeft(); });
-        //commands.Add("leff", () => { player.MoveLeft(); });
+        if (player == null)
+        {
+            Debug.LogError("VoiceManager: no se encontró ningún PlayerController en la escena.");
+            return;
+        }
 
-        //commands.Add("derecha", () => { player.MoveRight(); });
-        //commands.Add("dereca", () => { player.MoveRight(); });
-        //commands.Add("dereka", () => { player.MoveRight(); });
-        //commands.Add("derecga", () => { player.MoveRight(); });
-        //commands.Add("derejcha", () => { player.MoveRight(); });
-        //commands.Add("derejca", () => { player.MoveRight(); });
-        //commands.Add("derexcha", () => { player.MoveRight(); });
-        //commands.Add("derexca", () => { player.MoveRight(); });
-        //commands.Add("derehs", () => { player.MoveRight(); });
-        //commands.Add("right", () => { player.MoveRight(); });
-        //commands.Add("rigth", () => { player.MoveRight(); });
-        //commands.Add("raig", () => { player.MoveRight(); });
-        //commands.Add("raith", () => { player.MoveRight(); });
-        //commands.Add("raigt", () => { player.MoveRight(); });
+        string rutaGramatica = Path.Combine(Application.streamingAssetsPath, nombreArchivoGramatica);
 
-        commands.Add("salta",   () => { player.Jump(); });
-        commands.Add("saltar",  () => { player.Jump(); });
-        commands.Add("salto",   () => { player.Jump(); });
-        commands.Add("salte",   () => { player.Jump(); });
-        commands.Add("salti",   () => { player.Jump(); });
-        commands.Add("sarta",   () => { player.Jump(); });
-        commands.Add("saltra",  () => { player.Jump(); });
-        commands.Add("saltarr", () => { player.Jump(); });
-        commands.Add("arriba",  () => { player.Jump(); });
-        commands.Add("arribba", () => { player.Jump(); });
-        commands.Add("ariba",   () => { player.Jump(); });
-        commands.Add("jump",    () => { player.Jump(); });
-        commands.Add("jamp",    () => { player.Jump(); });
-        commands.Add("yamp",    () => { player.Jump(); });
-        commands.Add("yam",     () => { player.Jump(); });
-        commands.Add("yump",    () => { player.Jump(); });
-        commands.Add("yum",     () => { player.Jump(); });
-
-        //commands.Add("detente",  () => { player.Stop(); });
-        //commands.Add("detene",   () => { player.Stop(); });
-        //commands.Add("deten",    () => { player.Stop(); });
-        //commands.Add("detenete", () => { player.Stop(); });
-        //commands.Add("detenme",  () => { player.Stop(); });
-        //commands.Add("para",     () => { player.Stop(); });
-        //commands.Add("parra",    () => { player.Stop(); });
-        //commands.Add("parar",    () => { player.Stop(); });
-        //commands.Add("pararr",   () => { player.Stop(); });
-        //commands.Add("alto",     () => { player.Stop(); });
-        //commands.Add("altoo",    () => { player.Stop(); });
-        //commands.Add("alton",    () => { player.Stop(); });
-        //commands.Add("alrto",    () => { player.Stop(); });
-        //commands.Add("halto",    () => { player.Stop(); });
-        //commands.Add("stop",     () => { player.Stop(); });
-        //commands.Add("stap",     () => { player.Stop(); });
-        //commands.Add("estop",    () => { player.Stop(); });
-        //commands.Add("estap",    () => { player.Stop(); });
-        //commands.Add("stopp",    () => { player.Stop(); });
-        //commands.Add("estopp",   () => { player.Stop(); });
+        if (!File.Exists(rutaGramatica))
+        {
+            Debug.LogError($"VoiceManager: no se encontró el archivo de gramática en {rutaGramatica}");
+            return;
+        }
 
         try
         {
-            keywordRecognizer = new KeywordRecognizer(commands.Keys.ToArray(), confidenceLevel);
-            keywordRecognizer.OnPhraseRecognized += OnVoiceCommand;
-            keywordRecognizer.Start();
+            grammarRecognizer = new GrammarRecognizer(rutaGramatica, confidenceLevel);
+            grammarRecognizer.OnPhraseRecognized += OnVoiceCommand;
+            grammarRecognizer.Start();
+            Debug.Log("VoiceManager: GrammarRecognizer iniciado. Di 'salta'.");
         }
-        catch (System.Exception) { }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"VoiceManager: error al iniciar el GrammarRecognizer: {e.Message}");
+        }
     }
 
     void OnVoiceCommand(PhraseRecognizedEventArgs args)
     {
-        if (commands.ContainsKey(args.text))
+        string textoReconocido = args.text.ToLower().Trim();
+
+        Debug.Log($"VoiceManager: reconocido → '{textoReconocido}'");
+
+        if (textoReconocido.Contains("salta") ||
+            textoReconocido.Contains("saltar") ||
+            textoReconocido.Contains("salto"))
         {
-            commands[args.text]?.Invoke();
+            player.Jump();
         }
     }
 
     void OnDestroy()
     {
-        if (keywordRecognizer != null && keywordRecognizer.IsRunning)
+        if (grammarRecognizer != null && grammarRecognizer.IsRunning)
         {
-            keywordRecognizer.Stop();
-            keywordRecognizer.Dispose();
+            grammarRecognizer.Stop();
+            grammarRecognizer.Dispose();
         }
     }
 
-    public void ToggleListening(bool active)
+    public void ToggleListening(bool activo)
     {
-        if (keywordRecognizer == null) return;
+        if (grammarRecognizer == null) return;
 
-        if (active && !keywordRecognizer.IsRunning)
-            keywordRecognizer.Start();
-        else if (!active && keywordRecognizer.IsRunning)
-            keywordRecognizer.Stop();
+        if (activo && !grammarRecognizer.IsRunning)
+            grammarRecognizer.Start();
+        else if (!activo && grammarRecognizer.IsRunning)
+            grammarRecognizer.Stop();
     }
 }
