@@ -15,12 +15,15 @@ public class PlayerController : MonoBehaviour
     
     private bool isGrounded;
     private bool isJumping;
+    private Animator anim; 
     private Rigidbody2D rb;
     private int moveDirection = 0;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -33,12 +36,18 @@ public class PlayerController : MonoBehaviour
         }
 
         ManejarPasos();
+        ActualizarAnimacion();
+
     }
 
     void FixedUpdate()
     {
         float targetVelocity = moveDirection * moveSpeed;
         rb.linearVelocity = new Vector2(targetVelocity, rb.linearVelocity.y);
+    }
+    void ActualizarAnimacion()
+    {
+        anim.SetBool("Caminando", moveDirection != 0);
     }
 
     void ManejarPasos() 
@@ -57,6 +66,7 @@ public class PlayerController : MonoBehaviour
             else playerSoundController.playPaso2();
             step1 = !step1;
         }
+
     }
 
     public void MoveLeft()

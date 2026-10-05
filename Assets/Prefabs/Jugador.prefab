@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: -5341422126077175492}
   - component: {fileID: 6987368549944493627}
   - component: {fileID: 2050149528004348057}
+  - component: {fileID: 8078037746118114255}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -245,7 +246,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.041
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -343,7 +344,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 6987368549944493627}
   salto: {fileID: 8300000, guid: 0b264c4bf2b999445b5b522f55ccd9c9, type: 3}
-  paso1: {fileID: 8300000, guid: 752c225003a0b7942af135e02007a5ec, type: 3}
-  paso2: {fileID: 8300000, guid: d5b514b4934611b46b071534e872e243, type: 3}
-  dano: {fileID: 8300000, guid: 1f76136dfd8d1b64db5309ec6a26ca6a, type: 3}
+  paso1: {fileID: 8300000, guid: 0dedf70027614274bb75cc91716e0a96, type: 3}
+  volumenPaso1: 0.135
+  paso2: {fileID: 8300000, guid: 00478c8d1301efb4586345eba4345cde, type: 3}
+  volumenPaso2: 0.135
+  dano: {fileID: 8300000, guid: bcdc6d19b324acd4c9c34ec8cfb3b367, type: 3}
   muere: {fileID: 8300000, guid: ce2610e08ff038a48b10389a35ed0629, type: 3}
+--- !u!95 &8078037746118114255
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086878613882328186}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
