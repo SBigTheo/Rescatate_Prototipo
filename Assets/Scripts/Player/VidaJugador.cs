@@ -5,6 +5,7 @@ public class VidaJugador : MonoBehaviour
 {
     public int vidaMaxima = 3;
     public int VidaActual { get; private set; }
+    public PlayerSoundController playerSoundController;
 
     public event Action<int, int> OnVidaCambiada;
 
@@ -19,6 +20,8 @@ public class VidaJugador : MonoBehaviour
         VidaActual = Mathf.Max(VidaActual - cantidad, 0);
         Debug.Log("Vida: " + VidaActual);
 
+        playerSoundController.playDano();
+
         OnVidaCambiada?.Invoke(VidaActual, vidaMaxima);
 
         if (VidaActual <= 0)
@@ -29,5 +32,6 @@ public class VidaJugador : MonoBehaviour
     {
         FindFirstObjectByType<Cronometro>().Perder();
         Time.timeScale = 0f;
+        playerSoundController.playMuere();
     }
 }

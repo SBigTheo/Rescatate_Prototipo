@@ -2077,6 +2077,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2050149528004348057, guid: 6caa269a7f50a4b4884135c3c5bbc546, type: 3}
+      propertyPath: dano
+      value: 
+      objectReference: {fileID: 8300000, guid: bcdc6d19b324acd4c9c34ec8cfb3b367, type: 3}
     - target: {fileID: 2310467513104124792, guid: 6caa269a7f50a4b4884135c3c5bbc546, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

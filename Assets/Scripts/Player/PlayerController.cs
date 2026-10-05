@@ -5,6 +5,10 @@ public class PlayerController : MonoBehaviour
     public PlayerSoundController playerSoundController;
     public float moveSpeed = 12f;
     public float jumpForce = 15f;
+    float timeByStep = 0.3f;
+    float cont = 0f;
+    bool step1 = false;
+
     public float groundCheckRadius = 0.5f;
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -27,6 +31,8 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
+
+        ManejarPasos();
     }
 
     void FixedUpdate()
@@ -35,18 +41,35 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(targetVelocity, rb.linearVelocity.y);
     }
 
+    void ManejarPasos() 
+    {
+        if (moveDirection == 0 || !isGrounded)
+        {
+            cont = timeByStep;
+            return;
+        }
+
+        cont += Time.deltaTime;
+        if (cont >= timeByStep) 
+        {
+            cont = 0f;
+            if (step1) playerSoundController.playPaso1();
+            else playerSoundController.playPaso2();
+            step1 = !step1;
+        }
+    }
+
     public void MoveLeft()
     {
         moveDirection = -1;
         transform.localScale = new Vector3(-1, 1, 1);
-        playerSoundController.playPaso1();
+
     }
 
     public void MoveRight()
     {
         moveDirection = 1;
         transform.localScale = new Vector3(1, 1, 1);
-        playerSoundController.playPaso2();
     }
 
     public void Stop()

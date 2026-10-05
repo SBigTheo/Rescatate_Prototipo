@@ -10,15 +10,23 @@ public class PerroController : MonoBehaviour
     private int direccion = 1;    
     private bool llegoDerecha = false;
 
+    public AudioSource audioSource;
+    public AudioClip ladrido;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         posicionInicial = transform.position.x;
+        playLadrido();
     }
 
     void FixedUpdate()
     {
         Movimiento();
+    }
+    public void playLadrido()
+    {
+        audioSource.PlayOneShot(ladrido);
     }
 
     void Movimiento()

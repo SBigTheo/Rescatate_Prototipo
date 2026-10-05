@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaMaxima: 3
+  playerSoundController: {fileID: 2050149528004348057}
 --- !u!82 &6987368549944493627
 AudioSource:
   m_ObjectHideFlags: 0
