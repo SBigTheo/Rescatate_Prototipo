@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 44e92b82fd137854dad7d507b7881c83
+guid: f9b4bcd2300421248b60029e5ff9d8a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5833914143426879143
-    second: FondoCompletoXibiXibi_0
+      213: -266732808747704786
+    second: Rescatate_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FondoCompletoXibiXibi_0
+      name: Rescatate_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2128
-        height: 1128
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 951e9e6fef5c90fa0800000000000000
-      internalID: -5833914143426879143
+      spriteID: e2e96a47cef5c4cf0800000000000000
+      internalID: -266732808747704786
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FondoCompletoXibiXibi_0: -5833914143426879143
+      Rescatate_0: -266732808747704786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
